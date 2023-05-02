@@ -1,8 +1,14 @@
 export interface RuleItem {
   id: number
-  target: string
-  replace?: string
+  targets: Set<string>
+  replace: string
   style?: Partial<RuleStyle>
+}
+
+export interface RuleMate {
+  target: string
+  replace: string
+  style: Partial<RuleStyle>
 }
 
 export interface RuleItemRaw {

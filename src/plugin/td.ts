@@ -10,8 +10,10 @@ import {
   Tag as TTag,
   Tree as TTree,
   Collapse as TCollapse, CollapsePanel as TCollapsePanel,
-  TagInput as TTagInput,
-  Space as TSpace
+  TagInput as TTagInput, Input as TInput, Textarea as TTextarea,
+  Space as TSpace,
+  Form as TForm, FormItem as TFormItem,
+  Select as TSelect, Option as TOption
 } from 'tdesign-vue-next'
 
 export const td: Plugin = {
@@ -24,8 +26,10 @@ export const td: Plugin = {
       TTag,
       TTree,
       TCollapse, TCollapsePanel,
-      TTagInput,
-      TSpace
+      TTagInput, TInput, TTextarea,
+      TSpace,
+      TForm, TFormItem,
+      TSelect, TOption
     ]) {
       app.use(component)
     }

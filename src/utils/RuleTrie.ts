@@ -1,14 +1,14 @@
-import {RuleItem} from "../types/rule";
+import {RuleMate} from "../types/rule";
 
 export class RuleTrie {
   private readonly children: Map<string, RuleTrie>
-  content: RuleItem | null = null
+  content: RuleMate | null = null
 
   constructor() {
     this.children = new Map
   }
 
-  add(s: string, rule: RuleItem) {
+  add(s: string, rule: RuleMate) {
     if (s.length !== 0) this.addHelper([...s], rule)
   }
 
@@ -23,7 +23,7 @@ export class RuleTrie {
     }
   }
 
-  private addHelper(s: string[], rule: RuleItem) {
+  private addHelper(s: string[], rule: RuleMate) {
     let nowNode: RuleTrie = this
 
     for (const target of s) {
@@ -60,9 +60,7 @@ export class RuleTrie {
 
   remove(key: string) {
     if (key.length !== 0) {
-      console.log(this)
       this.removeHelper(key, 0)
-      console.log(this)
     }
   }
 
@@ -76,7 +74,6 @@ export class RuleTrie {
           return this.children.size === 0
         }
       }
-
       return false
     } else {
       this.content = null
