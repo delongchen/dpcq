@@ -4,7 +4,7 @@
     theme="primary"
     variant="dashed"
     @click="showForm = !showForm"
-  >add{{showForm ? ' ^': ''}}</t-button>
+  >添加规则集{{showForm ? ' ^': ''}}</t-button>
 
   <t-form
     v-show="showForm"
@@ -14,15 +14,15 @@
       <t-tag
         theme="danger"
         v-show="formData.name.length === 0"
-      >name empty!</t-tag>
+      >至少名字不能为空8</t-tag>
     </div>
 
-    <t-form-item label="name" name="name">
+    <t-form-item label="规则集名称" name="name">
       <t-input v-model="formData.name"></t-input>
     </t-form-item>
 
-    <t-form-item label="desc" name="desc">
-      <t-textarea placeholder="desc" v-model="formData.desc"></t-textarea>
+    <t-form-item label="描述" name="desc">
+      <t-textarea placeholder="描述一下这个规则集，来点骚话" v-model="formData.desc"></t-textarea>
     </t-form-item>
   </t-form>
 
@@ -30,12 +30,12 @@
     <t-button
       style="margin-top: 10px"
       @click="submit"
-    >ok</t-button>
+    >添加</t-button>
     <t-button
       theme="default"
       style="margin: 10px 0 0 10px"
       @click="closeForm"
-    >not</t-button>
+    >算了</t-button>
   </div>
 </template>
 

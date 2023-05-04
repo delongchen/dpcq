@@ -13,7 +13,7 @@ const EMPTY_SET: RuleSetRaw = {
     {
       targets: ['萧炎', '炎儿'],
       replace: 'k{self}k',
-      style: { color: 'red' }
+      style: { color: 'red', fontSize: '150%', border: '1px solid black' }
     },
     {
       targets: ['呵呵'],
@@ -58,6 +58,7 @@ export function useSet(id: number) {
   const exist = setsMap.value.get(id)
   if (exist !== undefined) {
     trieRoot = exist.getTrie()
+    setIdRef.value = id
     setRuleLSID(id)
   }
 }

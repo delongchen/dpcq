@@ -1,29 +1,30 @@
 <template>
-  <t-card :style="{marginTop: '20px'}">
+  <t-card :style="{marginTop: '10px'}">
     <template #title>
       <t-tag
         theme="success"
         :style="{marginRight: '10px'}"
         v-if="isUsing"
-      >using
-      </t-tag>
+      >使用中</t-tag>
       <span>{{ raw.name }}</span>
     </template>
 
     <template #actions>
       <t-space size="small">
-        <t-button theme="danger" @click="deleteRuleSet">delete</t-button>
-        <t-button @click="showMore = !showMore">{{ showMore ? 'close' : 'more' }}</t-button>
-        <t-button v-if="!isUsing" @click="useRuleSet">use</t-button>
+        <t-button theme="danger" @click="deleteRuleSet">删除</t-button>
+        <t-button v-if="!isUsing" @click="useRuleSet">使用</t-button>
+        <t-button @click="showMore = !showMore">{{ showMore ? '收起 <' : '详情 >' }}</t-button>
       </t-space>
     </template>
-    <t-button
-      style="width: 100%"
-      theme="primary"
-      variant="dashed"
-    >add rule</t-button>
 
     <div>{{ raw.desc }}</div>
+
+    <t-button
+      style="width: 100%; margin-top: 10px; margin-bottom: 10px"
+      theme="primary"
+      variant="dashed"
+      v-show="showMore"
+    >添加条目</t-button>
 
     <t-collapse
       :expand-on-row-click="false"
@@ -35,7 +36,6 @@
         :key="`rule-item-${rule.id}`"
       >
         <template #header>
-          <span>{{rule.id}}</span>
           <span>{{ [...rule.targets].join('/') }}</span>
           <span style="margin: 0 10px 0 10px">></span>
           <span :style="rule.style">{{ rule.replace ?? '{self}' }}</span>
